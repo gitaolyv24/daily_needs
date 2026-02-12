@@ -2,187 +2,120 @@
 
 ## 📖 Deskripsi Proyek
 
-**Daily Needs** adalah aplikasi manajemen kebutuhan harian berbasis web yang dikembangkan menggunakan **Laravel 12**. Aplikasi ini bertujuan membantu pengguna mencatat kebutuhan belanja secara terstruktur, memberikan label prioritas, serta memantau daftar kebutuhan agar lebih efisien dan terorganisir.
+**Daily Needs** adalah aplikasi manajemen kebutuhan harian berbasis web yang dikembangkan menggunakan **Laravel 12**.  
+Aplikasi ini membantu pengguna mencatat kebutuhan belanja secara terstruktur, memberikan label prioritas, memantau daftar kebutuhan, serta mengarsipkan item yang sudah selesai.
 
-Aplikasi ini dibuat sebagai **proyek pembelajaran dan pengembangan portofolio** dalam bidang pengembangan web dan sistem informasi.
+Proyek ini dibuat sebagai **proyek pembelajaran dan portofolio** dalam bidang pengembangan web dan sistem informasi.
 
 ---
 
 ## 🎯 Tujuan Proyek
 
-* Memudahkan pencatatan kebutuhan harian.
-* Mengelompokkan kebutuhan berdasarkan prioritas.
-* Melatih penerapan framework Laravel dalam pengembangan aplikasi nyata.
-* Menerapkan konsep CRUD, autentikasi, dan manajemen database.
+- Memudahkan pencatatan kebutuhan harian.  
+- Mengelompokkan kebutuhan berdasarkan prioritas (Rendah, Sedang, Tinggi).  
+- Melatih kemampuan penggunaan Laravel 12, konsep CRUD, dan manajemen database.  
+- Menyediakan arsip kebutuhan agar data tetap tertata.  
 
 ---
 
 ## 🧰 Teknologi yang Digunakan
 
-* **Backend** : Laravel 12
-* **Frontend** : Blade Template, HTML, CSS, Bootstrap
-* **Database** : MySQL / MariaDB
-* **Tools** : Git, GitHub, Visual Studio Code, Composer
+- **Backend:** Laravel 12  
+- **Frontend:** Blade Template, HTML, CSS, Bootstrap  
+- **Database:** MySQL / MariaDB  
+- **Tools:** Git, GitHub, Visual Studio Code, Composer  
 
 ---
 
 ## 📂 Struktur Folder Utama
 
+
 ```
 daily_needs/
 ├── app/
+│   ├── Http/
+│   ├── Models/
+│   └── ...
 ├── database/
+│   ├── migrations/
+│   └── seeders/
 ├── public/
 ├── resources/
 │   └── views/
 ├── routes/
+│   └── web.php
 ├── .env
 └── composer.json
+
 ```
+
 
 ---
 
 ## ⚙️ Fitur Aplikasi
 
-* Autentikasi pengguna (Login & Register)
-* Manajemen kebutuhan harian (Tambah, Lihat, Edit, Hapus)
-* Label prioritas kebutuhan (Rendah, Sedang, Tinggi)
-* Checklist kebutuhan
-* Riwayat kebutuhan
+- CRUD kebutuhan harian (Tambah, Lihat, Edit, Hapus)  
+- Label prioritas kebutuhan (Rendah / Sedang / Tinggi)  
+- Checklist kebutuhan (Belum dibeli / Sudah dibeli)  
+- Arsip barang dan tombol Pulihkan  
+- Riwayat kebutuhan  
 
 ---
 
-## 📌 Progress Pengembangan
+## 📝 User Stories
 
-### Tahap 1 – Inisialisasi Proyek
-
-* [x] Instalasi Laravel 12
-      ![Uploading image.png…]()
-
-* [x] Konfigurasi environment (.env)
-* [x] Setup database
-* [x] Push repository ke GitHub
-
-### Tahap 2 – Desain Database
-
-* [x] Perancangan ERD
-* [x] Pembuatan migration tabel users
-* [x] Pembuatan migration tabel needs
-
-### Tahap 3 – Backend Development
-
-* [x] CRUD kebutuhan
-* [x] Controller kebutuhan
-* [x] Validasi input
-* [x] Routing aplikasi
-
-### Tahap 4 – Frontend Development
-
-* [x] Halaman login & register
-* [x] Dashboard utama
-* [x] Form tambah kebutuhan
-* [x] Tampilan list kebutuhan
-
-### Tahap 5 – Testing & Debugging
-
-* [ ] Pengujian semua fitur
-* [ ] Perbaikan bug
-* [ ] Optimalisasi UI
+1. **Sebagai pengguna**, saya ingin menambahkan kebutuhan baru sehingga saya dapat mencatat barang yang dibutuhkan.  
+2. **Sebagai pengguna**, saya ingin melihat daftar kebutuhan dengan prioritas dan status sehingga bisa mengatur belanjaan.  
+3. **Sebagai pengguna**, saya ingin menandai barang yang sudah dibeli agar bisa fokus ke barang lain.  
+4. **Sebagai pengguna**, saya ingin mengarsipkan barang yang sudah dibeli agar dashboard tetap rapi.  
+5. **Sebagai pengguna**, saya ingin memulihkan barang dari arsip jika ingin membelinya lagi.  
 
 ---
 
-## 🗃️ Struktur Database
+## 🗂️ SRS Singkat (Software Requirement Specification)
 
-### Tabel `needs`
+### Functional Requirements
+- FR1: Tambah kebutuhan baru dengan nama barang, jumlah, prioritas, dan tanggal kebutuhan.  
+- FR2: Lihat daftar kebutuhan, urut berdasarkan prioritas dan tanggal.  
+- FR3: Tandai kebutuhan sebagai sudah dibeli.  
+- FR4: Arsipkan kebutuhan yang selesai.  
+- FR5: Pulihkan kebutuhan dari arsip.  
+- FR6: Hapus kebutuhan.  
 
-| Field       | Tipe      | Keterangan               |
-| ----------- | --------- | ------------------------ |
-| id          | bigint    | Primary key              |
-| user_id     | bigint    | Relasi user              |
-| nama_barang | varchar   | Nama kebutuhan           |
-| prioritas   | enum      | rendah / sedang / tinggi |
-| status      | boolean   | Selesai / belum          |
-| created_at  | timestamp | Waktu input              |
-| updated_at  | timestamp | Waktu update             |
-
----
-
-## 🚀 Cara Menjalankan Proyek
-
-1. Clone repository
-
-```bash
-git clone https://github.com/gitaolyv24/daily_needs.git
-```
-
-2. Masuk folder project
-
-```bash
-cd daily_needs
-```
-
-3. Install dependency
-
-```bash
-composer install
-```
-
-4. Copy file environment
-
-```bash
-cp .env.example .env
-```
-
-5. Generate key
-
-```bash
-php artisan key:generate
-```
-
-6. Konfigurasi database di file `.env`
-
-7. Migrasi database
-
-```bash
-php artisan migrate
-```
-
-8. Jalankan server
-
-```bash
-php artisan serve
-```
-
-Akses di browser:
-
-```
-http://127.0.0.1:8000
-```
+### Non-Functional Requirements
+- NFR1: Responsif pada desktop dan mobile.  
+- NFR2: Validasi input data sebelum disimpan.  
+- NFR3: Database aman dan konsisten.  
+- NFR4: Waktu respon cepat (<1 detik untuk operasi CRUD sederhana).  
 
 ---
 
-## 📸 Dokumentasi Screenshot
+## 📊 Diagram Use Case
 
-*(Tambahkan screenshot halaman login, dashboard, dan fitur utama di sini)*
+```text
+          +------------------+
+          |       User       |
+          +------------------+
+             |    |    | 
+     --------+    |    +-------------
+     |             |                  |
+  Dashboard     Tambah            Lihat
+                  |                |
+           +-------------+-------------------+
+           |             |                   |
+        Update        Hapus               Arsip
+           |                                |
+        Tandai                               Pulihkan
 
----
-
-## 📈 Rencana Pengembangan Selanjutnya
-
-* Fitur reminder kebutuhan
-* Export data ke PDF / Excel
-* Grafik statistik belanja
-* Notifikasi kebutuhan prioritas tinggi
-
----
-
-## 👩‍💻 Developer
-
-**Gita Olivia**
-GitHub: [https://github.com/gitaolyv24](https://github.com/gitaolyv24)
 
 ---
 
-## 📜 Lisensi
+##  🔄 Struktur Logika MVC & Alur Data
 
-Proyek ini dibuat untuk keperluan pembelajaran dan tidak digunakan untuk tujuan komersial.
+User --> Routes --> Controller --> Model --> Database
+         ^          |
+         |          v
+         |       View (Blade)
+         |
+     HTTP Request
+
