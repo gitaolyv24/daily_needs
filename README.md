@@ -110,8 +110,9 @@ daily_needs/
 
 ---
 
-##  🔄 Struktur Logika MVC & Alur Data
+## 🔄 Struktur Logika MVC & Alur Data
 
+```text
 User --> Routes --> Controller --> Model --> Database
          ^          |
          |          v
